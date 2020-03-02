@@ -8,10 +8,17 @@
     "build": "tsc -p tsconfig.release.json",
     "build:watch": "tsc -w -p tsconfig.json"
   },
-  "bin":{
+  "bin": {
     "pino-pg": "./index.js"
   },
-  "keywords": ["pino", "pinojs", "postgres", "pg", "postgresql", "transport"],
+  "keywords": [
+    "pino",
+    "pinojs",
+    "postgres",
+    "pg",
+    "postgresql",
+    "transport"
+  ],
   "author": "Xavier Stouder <xavier@stouder.io>",
   "license": "MIT",
   "types": "dist/index.d.ts",

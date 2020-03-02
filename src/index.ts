@@ -65,12 +65,14 @@ function transporter(errConfig: string | null, config: PinoPgConfig) {
   if(errConfig !== null) return console.error(errConfig)
   
   const pgTransport = through.obj((chunk, encoding, callback) => {
+    console.log(chunk)
     const client = new Client(config.connection)
     client.connect((connectErr) => {
       if(connectErr !== null) {
         console.error(connectErr)
         return callback('Failed to connect to PostgreSQL server.')
       }
+      
       client.query(buildInsertString(config), Object.values(JSON.parse(chunk)), (queryErr, result) => {
         if(queryErr !== null) {
           console.error(queryErr)

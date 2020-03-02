@@ -1,6 +1,6 @@
 {
   "name": "pino-pg",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A Pino Transport for PostgreSQL databases.",
   "main": "index.js",
   "scripts": {
@@ -15,6 +15,11 @@
   "author": "Xavier Stouder <xavier@stouder.io>",
   "license": "MIT",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist/src/index.d.ts",
+    "dist/src/index.js",
+    "index.js"
+  ],
   "dependencies": {
     "pg": "7.18.2",
     "pino": "^5.17.0",

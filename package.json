@@ -29,5 +29,13 @@
     "@types/through2": "^2.0.34",
     "rimraf": "^3.0.2",
     "typescript": "^3.8.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Xstoudi/pino-pg.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Xstoudi/pino-pg/issues"
+  },
+  "homepage": "https://github.com/Xstoudi/pino-pg#readme"
 }

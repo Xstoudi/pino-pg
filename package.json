@@ -1,0 +1,33 @@
+{
+  "name": "pino-pg",
+  "version": "1.0.0",
+  "description": "A Pino Transport for PostgreSQL databases.",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf coverage build tmp",
+    "build": "tsc -p tsconfig.release.json",
+    "build:watch": "tsc -w -p tsconfig.json"
+  },
+  "bin":{
+    "pino-pg": "./index.js"
+  },
+  "keywords": ["pino", "pinojs", "postgres", "pg", "postgresql", "transport"],
+  "author": "Xavier Stouder <xavier@stouder.io>",
+  "license": "MIT",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "pg": "7.18.2",
+    "pino": "^5.17.0",
+    "pump": "^3.0.0",
+    "split2": "^3.1.1",
+    "through2": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/pg": "^7.14.1",
+    "@types/pump": "^1.1.0",
+    "@types/split2": "^2.1.6",
+    "@types/through2": "^2.0.34",
+    "rimraf": "^3.0.2",
+    "typescript": "^3.8.3"
+  }
+}

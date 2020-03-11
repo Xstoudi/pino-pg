@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "clean": "rimraf coverage build tmp",
-    "build": "tsc -p tsconfig.release.json",
-    "build:watch": "tsc -w -p tsconfig.json"
+    "build": "tsc -p tsconfig.json",
+    "build:watch": "tsc -w -p tsconfig.json",
+    "test": "npm run build && ava"
   },
   "bin": {
     "pino-pg": "./index.js"
@@ -29,17 +30,21 @@
   ],
   "dependencies": {
     "pg": "7.18.2",
-    "pino": "^5.17.0",
     "pump": "^3.0.0",
     "split2": "^3.1.1",
-    "through2": "^3.0.1"
+    "through2": "^3.0.1",
+    "yargs": "^15.3.0"
   },
   "devDependencies": {
+    "@ava/typescript": "^1.1.1",
     "@types/pg": "^7.14.1",
     "@types/pump": "^1.1.0",
     "@types/split2": "^2.1.6",
     "@types/through2": "^2.0.34",
+    "@types/yargs": "^15.0.4",
+    "ava": "^3.5.0",
     "rimraf": "^3.0.2",
+    "ts-node": "^8.6.2",
     "typescript": "^3.8.3"
   },
   "repository": {
@@ -49,5 +54,13 @@
   "bugs": {
     "url": "https://github.com/Xstoudi/pino-pg/issues"
   },
-  "homepage": "https://github.com/Xstoudi/pino-pg#readme"
+  "homepage": "https://github.com/Xstoudi/pino-pg#readme",
+  "ava": {
+    "typescript": {
+      "rewritePaths": {
+        "src/": "dist/src/",
+        "test/": "dist/test/"
+      }
+    }
+  }
 }

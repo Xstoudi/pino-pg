@@ -3,6 +3,7 @@ A Pino Transport for PostgreSQL databases.
 
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Xstoudi/pino-pg/Tests?label=tests&style=for-the-badge)
 ![GitHub](https://img.shields.io/github/license/Xstoudi/pino-pg?style=for-the-badge)
+![npm](https://img.shields.io/npm/v/pino-pg?style=for-the-badge)
 
 ## Installation
 ```

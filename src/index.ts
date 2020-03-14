@@ -12,7 +12,7 @@ interface PinoPgConfig {
   column: string
 }
 
-function transporter(config: PinoPgConfig) {  
+function transporter(config: PinoPgConfig) {
   return through.obj((chunk, encoding, callback) => {
     const client = new Client({ connectionString: config.connectionUrl})
     client.connect((connectErr) => {

@@ -6,12 +6,14 @@ export default yargs
   .option('connectionUrl', {
     type: 'string',
     alias: 'u',
+    group: 'PostgreSQL',
     requiresArg: true,
     description: 'Connection string to PG server.'
   })
   .option('table', {
     type: 'string',
     alias: 't',
+    group: 'PostgreSQL',
     requiresArg: true,
     description: 'Log table.',
     default: 'logs'
@@ -19,6 +21,7 @@ export default yargs
   .option('column', {
     type: 'string',
     alias: 'c',
+    group: 'PostgreSQL',
     requiresArg: true,
     description: 'JSONB column where to store the log entry.',
     default: 'content'

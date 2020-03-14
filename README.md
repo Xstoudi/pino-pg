@@ -9,34 +9,13 @@ npm install pino-pg
 ## Usage
 Write logs into PostgreSQL
 ```
-node my-app.js | pino-pg -c configuration.json
+node my-app.js | pino-pg --connectionUrl <your connection string> --table <your logs table> --column <your column table>
 ```
 
-## Configuration file
-The configuration file is a JSON file like this :
-```json
-{
-    "connection": {
-        "user": "postgres",
-        "database": "test-database",
-        "password": "",
-        "port": "",
-        "host": "127.0.0.1"
-    },
-    "table": "logs",
-    "columns": {
-        "level": "level",
-        "time": "time",
-        "pid": "pid",
-        "hostname": "hostname",
-        "msg": "msg",
-        "v": "v"
-    }
-}
-```
-The `connection` field contains the [node-pg connection information](https://node-postgres.com/features/connecting#Programmatic).
-The `table` field is the table where you want to store logs.
-The `columns` field allows you to custom PostgreSQL column name for each pino field. Key is pino field, value is column name.
+## Options
+The `connectionUrl` (or `c`) must contain the [postgres url string](https://node-postgres.com/features/connecting#Connection%20URI).
+The `table` (or `t`) must contain the table name. Default to `logs`.
+The `column` (or `c`) must contain the name of the JSONB column where you want to store log entries.
 
 ## License
 Licensed under [MIT](https://github.com/Xstoudi/pino-pg/blob/master/LICENSE.md)

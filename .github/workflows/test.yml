@@ -7,9 +7,14 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node_version: [8.x, 10.x, 12.x, 13.x]
+        node_version: [10.x, 12.x, 13.x]
     steps:
     - uses: actions/checkout@v2
+    - uses: m4nu56/postgresql-action@v1
+      with:
+        postgresql db: test-database
+        postgresql user: postgres
+        postgresql password: root
     - name: Use Node.js ${{ matrix.node_version }}
       uses: actions/setup-node@v1
       with:

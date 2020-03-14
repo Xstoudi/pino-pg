@@ -6,7 +6,7 @@ import { Client } from 'pg'
 
 const CORRECT_PARAMS = [
   '--connectionUrl',
-  'postgresql://postgres:swag@localhost/test-database',
+  'postgresql://postgres:root@localhost/test-database',
   '--table',
   'logs',
   '--column',
@@ -39,11 +39,18 @@ function execute(args: string[] = [], opts: any = {}, pipedContent: string = '')
 }
 
 const client = new Client({
-  connectionString: 'postgresql://postgres:swag@localhost/test-database'
+  connectionString: 'postgresql://postgres:root@localhost/test-database'
 })
 
 test.before('create database connection', async () => {
   await client.connect()
+  await client.query(`
+    CREATE TABLE public.logs
+    (
+        id serial PRIMARY KEY NOT NULL,
+        content jsonb NOT NULL
+    )
+  `)
 })
 
 test.beforeEach('remove content', async () => {

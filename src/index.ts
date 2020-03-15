@@ -6,15 +6,10 @@ import args from './args'
 
 function transporter(table: string, column: string, client: Client) {
   return async function* (source: AsyncIterable<string>) {
-    const prepared: string[] = []
-    const values: any[] = []
     for await (const line of source) {
-      prepared.push(`($${prepared.length + 1})`)
-      values.push(JSON.parse(line))
+      await client.query(`INSERT INTO ${table}(${column}) VALUES($1)`, [JSON.parse(line)])
       yield line
     }
-    
-    await client.query(`INSERT INTO ${table}(${column}) VALUES${prepared.join(',')}`, values)
   }
 }
 

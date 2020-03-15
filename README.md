@@ -5,6 +5,9 @@ A Pino Transport for PostgreSQL databases.
 ![GitHub](https://img.shields.io/github/license/Xstoudi/pino-pg?style=for-the-badge)
 ![npm](https://img.shields.io/npm/v/pino-pg?style=for-the-badge)
 
+## Requirement
+This package requires at least Node.js version `13.10.0`.
+
 ## Installation
 ```
 npm install pino-pg

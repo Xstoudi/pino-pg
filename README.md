@@ -6,7 +6,7 @@ A Pino Transport for PostgreSQL databases.
 ![npm](https://img.shields.io/npm/v/pino-pg?style=for-the-badge)
 
 ## Requirement
-This package requires at least Node.js version `13.10.0`.
+This package requires at least Node.js version 10.
 
 ## Installation
 ```

@@ -46,7 +46,7 @@
     "@types/split2": "^2.1.6",
     "@types/through2": "^2.0.34",
     "@types/yargs": "^15.0.4",
-    "@types/node": "^13.9.1",
+    "@types/node": "^13.9.3",
     "ava": "^3.5.0",
     "concat-stream": "^2.0.0",
     "rimraf": "^3.0.2",

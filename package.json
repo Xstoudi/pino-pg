@@ -1,6 +1,6 @@
 {
   "name": "pino-pg",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "A Pino Transport for PostgreSQL databases.",
   "main": "index.js",
   "scripts": {

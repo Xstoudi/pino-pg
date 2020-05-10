@@ -1,7 +1,7 @@
 import { Client } from 'pg'
 import split from 'split2'
 import { pipeline, TransformCallback, Transform } from 'stream'
-import os from 'os'
+
 import args from './args'
 
 class PgTransport extends Transform {

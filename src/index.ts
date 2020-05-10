@@ -1,7 +1,7 @@
 import { Client } from 'pg'
 import split from 'split2'
 import { pipeline, TransformCallback, Transform } from 'stream'
-
+import os from 'os'
 import args from './args'
 
 class PgTransport extends Transform {
@@ -14,14 +14,29 @@ class PgTransport extends Transform {
     this.table = table
     this.column = column
     this.client = client
+
+    process.stdin.on('end', () => this._shutdown('input ended'))
+    process.on('SIGINT', () => this._shutdown('SIGINT'))
+    process.on('SIGTERM', () => this._shutdown('SIGTERM'))
+  }
+
+  _shutdown (reason: string) {
+      process.exit(0)
   }
 
   _transform(chunk: any, encoding: string, callback: TransformCallback) {
     const content = chunk.toString('utf-8')
-    this.client.query(`INSERT INTO ${this.table}(${this.column}) VALUES($1)`, [JSON.parse(content)])
+    let log: any
+    try {
+      log = JSON.parse(content)
+    } catch {
+      // pass it through non-json.
+      return callback(null, `${chunk}\n`)
+    }
+    this.client.query(`INSERT INTO ${this.table}(${this.column}) VALUES($1)`, [log])
       .then(
         () => {
-          callback(null, chunk)
+          callback(null, `${chunk}\n`)
         },
         err => callback(err, null)
       )

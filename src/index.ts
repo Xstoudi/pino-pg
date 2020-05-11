@@ -15,12 +15,12 @@ class PgTransport extends Transform {
     this.column = column
     this.client = client
 
-    process.stdin.on('end', () => this._shutdown('input ended'))
-    process.on('SIGINT', () => this._shutdown('SIGINT'))
-    process.on('SIGTERM', () => this._shutdown('SIGTERM'))
+    process.stdin.on('end', () => this._shutdown())
+    process.on('SIGINT', () => this._shutdown())
+    process.on('SIGTERM', () => this._shutdown())
   }
 
-  _shutdown (reason: string) {
+  _shutdown () {
       process.exit(0)
   }
 

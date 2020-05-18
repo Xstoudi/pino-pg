@@ -46,7 +46,7 @@
     "@types/pg": "^7.14.1",
     "@types/pump": "^1.1.0",
     "@types/split2": "^2.1.6",
-    "@types/through2": "^2.0.34",
+    "@types/through2": "^2.0.36",
     "@types/yargs": "^15.0.4",
     "@types/node": "^13.13.5",
     "ava": "^3.8.2",

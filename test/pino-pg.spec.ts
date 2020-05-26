@@ -39,7 +39,7 @@ function execute(args: string[] = [], opts: any = {}, pipedContent: string = '')
 }
 
 const client = new Client({
-  connectionString: 'postgresql://postgres:root@localhost/test-database'
+  connectionString: 'postgresql://postgres:root@localhost:5432/test-database'
 })
 
 test.before('create database connection', async () => {
@@ -70,7 +70,6 @@ test('should show version when --version', async assert => {
 test('should store a simple log', async assert => {
   const logEntry = { foo: true }
   await execute(CORRECT_PARAMS, {}, JSON.stringify(logEntry))
-
   const result = await client.query(`SELECT content -> 'foo' AS foo FROM logs ORDER BY id DESC LIMIT 1`)
   assert.deepEqual(result.rows[0], logEntry)
 })

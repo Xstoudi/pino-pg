@@ -15,13 +15,12 @@ class PgTransport extends Transform {
     this.column = column
     this.client = client
 
-    process.stdin.on('end', () => this._shutdown())
     process.on('SIGINT', () => this._shutdown())
     process.on('SIGTERM', () => this._shutdown())
   }
 
   _shutdown () {
-      process.exit(0)
+    process.exit(0)
   }
 
   _transform(chunk: any, encoding: string, callback: TransformCallback) {
@@ -65,7 +64,6 @@ function main() {
     if(connectErr !== null) {
       return console.error('Failed to connect to PostgreSQL server.', connectErr)
     }
-
     pipeline(process.stdin, split(), transporter(args.table, args.column, client) as any, process.stdout, err => {
       if(err != null){
         console.error(err)

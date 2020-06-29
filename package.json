@@ -37,7 +37,7 @@
     "pg": "8.2.1",
     "pump": "^3.0.0",
     "split2": "^3.1.1",
-    "through2": "^3.0.1",
+    "through2": "^4.0.1",
     "yargs": "^15.3.1"
   },
   "devDependencies": {

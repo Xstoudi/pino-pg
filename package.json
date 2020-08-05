@@ -7,7 +7,7 @@
     "clean": "rimraf coverage build tmp",
     "build": "tsc -p tsconfig.json",
     "build:watch": "tsc -w -p tsconfig.json",
-    "test": "ava --verbose"
+    "test": "ava **/*.spec.ts --verbose"
   },
   "bin": {
     "pino-pg": "./index.js"

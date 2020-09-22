@@ -42,6 +42,10 @@ const client = new Client({
   connectionString: 'postgresql://postgres:root@localhost:5432/test-database'
 })
 
+test.before('resetting database', () => {
+  client.query(`DROP TABLE IF EXISTS public.logs CASCADE`)
+})
+
 test.before('create database connection', async () => {
   await client.connect()
   await client.query(`

@@ -35,22 +35,16 @@
   ],
   "dependencies": {
     "pg": "8.3.3",
-    "pump": "^3.0.0",
     "split2": "^3.2.2",
-    "through2": "^4.0.2",
     "yargs": "^16.0.3"
   },
   "devDependencies": {
     "@ava/typescript": "^1.1.1",
-    "@types/concat-stream": "^1.6.0",
     "@types/pg": "^7.14.5",
-    "@types/pump": "^1.1.0",
     "@types/split2": "^2.1.6",
-    "@types/through2": "^2.0.36",
     "@types/yargs": "^15.0.5",
     "@types/node": "^14.11.2",
     "ava": "^3.12.1",
-    "concat-stream": "^2.0.0",
     "rimraf": "^3.0.2",
     "source-map-support": "^0.5.19",
     "ts-node": "^9.0.0",

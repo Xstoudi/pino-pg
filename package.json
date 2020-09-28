@@ -44,7 +44,7 @@
     "@types/split2": "^2.1.6",
     "@types/yargs": "^15.0.5",
     "@types/node": "^14.11.2",
-    "ava": "^3.12.1",
+    "ava": "^3.13.0",
     "rimraf": "^3.0.2",
     "source-map-support": "^0.5.19",
     "ts-node": "^9.0.0",

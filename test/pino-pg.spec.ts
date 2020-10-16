@@ -1,7 +1,6 @@
 import { serial as test } from 'ava'
 import { spawn } from 'child_process'
 import concat from 'concat-stream'
-import { EOL } from 'os'
 import { Client } from 'pg'
 
 const CORRECT_PARAMS = [
@@ -33,7 +32,7 @@ function execute(args: string[] = [], opts: any = {}, pipedContent: string = '')
     childProcess.stderr.once('data', err => reject(new Error(err.toString())))
     childProcess.on('error', (err: string) => reject(new Error(err)))
     childProcess.stdout.pipe(concat(buffer => resolve(buffer.toString())))
-    childProcess.stdin.write(`${pipedContent}\r\n`)
+    childProcess.stdin.write(`${pipedContent}\n`)
     childProcess.stdin.end()
   })
 }
@@ -63,7 +62,7 @@ test.beforeEach('remove content', async () => {
 
 test('should show help when --help', async assert => {
   const response: string = await execute(['--help'])
-  assert.is(response.trim().split(EOL).shift()?.trim(), 'pino-pg [options]')
+  assert.is(response.trim().split('\n').shift()?.trim(), 'pino-pg [options]')
 })
 
 test('should show version when --version', async assert => {

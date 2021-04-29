@@ -1,0 +1,38 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: weekly
+    time: "04:00"
+  open-pull-requests-limit: 10
+  reviewers:
+  - Xstoudi
+  assignees:
+  - Xstoudi
+  versioning-strategy: increase
+  ignore:
+  - dependency-name: "@types/node"
+    versions:
+    - 14.14.22
+    - 14.14.25
+    - 14.14.28
+    - 14.14.31
+    - 14.14.32
+    - 14.14.34
+    - 14.14.35
+    - 14.14.37
+  - dependency-name: typescript
+    versions:
+    - 4.1.3
+    - 4.1.5
+    - 4.2.2
+    - 4.2.3
+  - dependency-name: "@types/pg"
+    versions:
+    - 7.14.10
+    - 7.14.9
+  - dependency-name: "@types/yargs"
+    versions:
+    - 15.0.12
+    - 16.0.0

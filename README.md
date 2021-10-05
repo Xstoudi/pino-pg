@@ -1,3 +1,5 @@
+> DISCONTINUED
+
 # pino-pg
 A Pino Transport for PostgreSQL databases.
 

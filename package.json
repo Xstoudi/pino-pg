@@ -34,7 +34,7 @@
     "index.js"
   ],
   "dependencies": {
-    "pg": "8.5.1",
+    "pg": "8.7.1",
     "split2": "^3.2.2",
     "yargs": "^17.0.1"
   },

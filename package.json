@@ -36,7 +36,7 @@
   "dependencies": {
     "pg": "8.5.1",
     "split2": "^3.2.2",
-    "yargs": "^16.2.0"
+    "yargs": "^17.0.1"
   },
   "devDependencies": {
     "@ava/typescript": "^1.1.1",

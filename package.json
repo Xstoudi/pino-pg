@@ -35,7 +35,7 @@
   ],
   "dependencies": {
     "pg": "8.7.1",
-    "pino-abstract-transport": "^0.4.0",
+    "pino-abstract-transport": "^1.0.0",
     "split2": "^3.2.2",
     "yargs": "^17.0.1"
   },

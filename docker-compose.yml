@@ -1,10 +1,11 @@
 version: '3.1'
 services: 
   pgsql:
-    image: postgres
+    container_name: pino_pg_db
+    image: postgres:14.1-alpine
     ports: 
-      - 5432:5432
+      - "${DB_PORT}:5432"
     environment:
-      POSTGRES_DB: test-database
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: root
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}

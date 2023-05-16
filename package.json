@@ -1,7 +1,7 @@
 {
   "name": "pino-pg",
   "version": "2.2.2",
-  "description": "A Pino Transport for PostgreSQL databases.",
+  "description": "A Pino Transport for Postgres databases.",
   "main": "index.js",
   "scripts": {
     "clean": "rimraf coverage build tmp",
@@ -23,8 +23,8 @@
     "postgresql",
     "transport"
   ],
-  "author": "Xavier Stouder <xavier@stouder.io>",
-  "license": "MIT",
+  "author": "Original: Xavier Stouder <xavier@stouder.io>",
+  "license": "UNLICENCED",
   "types": "dist/index.d.ts",
   "files": [
     "dist/src/index.d.ts",
@@ -34,39 +34,25 @@
     "index.js"
   ],
   "dependencies": {
+    "@types/chai": "^4.3.5",
+    "@types/mocha": "^10.0.1",
+    "chai": "^4.3.7",
+    "dotenv": "^16.0.3",
+    "mocha": "^10.2.0",
     "pg": "8.7.1",
     "pino-abstract-transport": "^0.4.0",
-    "split2": "^3.2.2",
-    "yargs": "^17.0.1"
+    "split2": "^3.2.2"
   },
   "devDependencies": {
-    "@ava/typescript": "^2.0.0",
     "@types/concat-stream": "^1.6.0",
     "@types/node": "^16.4.10",
     "@types/pg": "^8.6.1",
     "@types/split2": "^3.2.1",
-    "@types/yargs": "^17.0.3",
-    "ava": "^3.15.0",
     "concat-stream": "^2.0.0",
     "rimraf": "^3.0.2",
     "source-map-support": "^0.5.19",
     "ts-node": "^10.2.1",
     "typescript": "^4.3.5"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/Xstoudi/pino-pg.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Xstoudi/pino-pg/issues"
-  },
-  "homepage": "https://github.com/Xstoudi/pino-pg#readme",
-  "ava": {
-    "typescript": {
-      "rewritePaths": {
-        "src/": "dist/src/",
-        "test/": "dist/test/"
-      }
-    }
-  }
+  "repository": ""
 }

@@ -2,10 +2,10 @@ import {Client} from 'pg'
 import split from 'split2'
 import {pipeline, Transform, TransformCallback} from 'stream'
 
-import {columns, connUrl, table} from './args'
+import {columns, connUrl, encoding, params, table} from './config'
 
 export class PgTransport extends Transform {
-    private client: Client
+    private client: any
     private readonly table: string
     private readonly columns: string
 
@@ -23,30 +23,25 @@ export class PgTransport extends Transform {
         process.exit(0)
     }
 
-    async _transform(chunk: Buffer, encoding: string, callback: TransformCallback) {
-        const content = chunk.toString('utf-8')
+    _transform(chunk: Buffer, encode: string, callback: TransformCallback) {
+        const content = chunk.toString(encoding)
+
         let log: any
         try {
             const logData = JSON.parse(content)
             log = Object.values(logData)
         } catch {
-            // pass it through non-json.
+            //pass it through non-json.
             return callback(null, `${chunk}\n`)
         }
-        const query = `INSERT INTO ${this.table} (${this.columns}) VALUES ($1, $2, $3, $4, $5, $6);`
-        this.client.query(query, ...log, (err: Error,res: any) => {
-            console.log(res)
-            console.error(err)
-        })
-            // .then(
-            //     () => {
-            //         console.log('ok')
-            //         callback(null, `${chunk}\n`)
-            //     })
-            // .catch(err => {
-            //     console.error(err)
-            //     callback(err, null)
-            // })
+        const query = `INSERT INTO ${this.table} (${this.columns})
+                       VALUES (${params});`
+        this.client.query(
+            query,
+            log,
+            (err: Error) => {
+                callback(err, null)
+            })
     }
 }
 
@@ -67,11 +62,12 @@ function main() {
         if (connectErr !== null) {
             return console.error('Failed to connect to Postgres server.', connectErr)
         }
-        pipeline(process.stdin, split(), transporter(table, columns, client) as any, process.stdout, err => {
-            if (err != null) {
-                console.error(err)
-            }
-        })
+        pipeline(process.stdin, split(), transporter(table, columns, client) as any, process.stdout,
+            err => {
+                if (err != null) {
+                    console.error(err)
+                }
+            })
     })
 }
 
